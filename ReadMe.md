@@ -1,5 +1,5 @@
 ## Fluid System UI 
 
-- Simple Android System Properties added 
+- Simple Android System Properties  
 - Boost System Fluidity and responsiveness
 - Boost Fps Limits

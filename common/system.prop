@@ -4,3 +4,14 @@
 
 debug.egl.swapinterval=-60
 debug.gr.swapinterval=0
+debug.sf.showupdates=0
+debug.sf.showcpu=0
+debug.sf.showbackground=0
+debug.sf.showfps=0
+
+# Frame rate override system wide (For Applications & Games)
+# This feature is intended to cover the scenario where a game hasn’t set its own desired frame rate via the setFrameRate() API.
+
+ro.surface_flinger.game_default_frame_rate_override=true
+ro.surface_flinger.enable_frame_rate_override=true
+persist.graphics.game_default_frame_rate.enabled=false

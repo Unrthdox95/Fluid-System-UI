@@ -4,14 +4,40 @@
 
 debug.egl.swapinterval=-60
 debug.gr.swapinterval=0
-debug.sf.showupdates=0
-debug.sf.showcpu=0
-debug.sf.showbackground=0
-debug.sf.showfps=0
+sf.showupdates=0
+sf.showcpu=0
+sf.showbackground=0
+sf.showfps=0
+performance.tuning=1
+ro.sf.hw=1
+persist.sys.fpslimit=240
+persist.sys.powermode=0
+ro.hwui.disable_vsync=true
 
 # Frame rate override system wide (For Applications & Games)
 # This feature is intended to cover the scenario where a game hasn’t set its own desired frame rate via the setFrameRate() API.
 
-ro.surface_flinger.game_default_frame_rate_override=true
+ro.surface_flinger.game_default_frame_rate_override=120
 ro.surface_flinger.enable_frame_rate_override=true
 persist.graphics.game_default_frame_rate.enabled=false
+vendor.perf.framepacing.enable=1
+ro.gpu.max_fps=240
+ro.gpu.min_fps=120
+ro.vendor.display.min_fps=120
+
+#Enable PowerHAL hint processing
+vendor.powerhal.init=1
+
+#Modified Vendor Prop Context
+
+vendor.perf.gestureflingboost.enable=true
+vendor.enable.prefetch=false
+vendor.iop.enable_prefetch_ofr=false
+vendor.perf.iop_v3.enable=1
+vendor.perf.iop_v3.enable.debug=false
+ro.vendor.display.default_fps=120
+vendor.debug.egl.swapinterval=0
+ro.zygote.disable_gl_preload=tue
+graphics.display.kernel_idle_timer.enabled=@60
+vendor.setup.power=1
+ro.sf.disable_triple_buffer=true

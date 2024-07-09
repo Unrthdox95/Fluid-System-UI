@@ -1,0 +1,12 @@
+#!/system/bin/sh
+
+## Android runtime (ART) includes a just-in-time (JIT) compiler with code profiling that continually improves the performance of Android applications as they run. The JIT compiler complements ART's current ahead-of-time (AOT) compiler and improves runtime performance, saves storage space, and speeds application and system updates. It also improves upon the AOT compiler by avoiding system slowdown during automatic application updates or recompilation of applications during over-the-air (OTA) updates.
+
+echo " This Process may take time "
+sleep 1 
+echo " Do not close Terminal while compiling " 
+sleep 1
+echo " ##### Starting JIT Compiler #####
+sleep 0.5
+
+cmd package compile -m speed -f -a

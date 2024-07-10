@@ -10,14 +10,14 @@
 - Open Terminal and type:
     -     su
 - Hit enter then
-   -     FS Pixelr "preset"
+   -     Pixelr Pixelr "preset"
 - #### Presets [ Low, Medium, Extreme, Default ]
 > [!IMPORTANT] 
 > After Process complete, you can adjust icon and text size on display settings.
 > 
 > To revert back to original Resolution and Density
 - Use either:
-   -     FS Pixelr default
+   -     Pixelr Pixelr default
    -     wm reset
 ### New JIT Compiler
 - Android runtime (ART) includes a just-in-time (JIT) compiler with code profiling that continually improves the performance of Android applications as they run.

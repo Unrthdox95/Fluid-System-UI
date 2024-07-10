@@ -10,7 +10,7 @@ function setx() {
   [[ ! -x "${0%/*}/$1" ]] && chmod +x "${0%/*}/$1"
 }
   setx "system/bin/gm1"
-  setx "system/bin/JIT compiler"
-  setx "system/bin/Pixelr"
+  setx "system/bin/JIT-compiler"
+  setx "system/bin/FS"
   setx "/bin/shexample"
 # This script will be executed in post-fs-data mode

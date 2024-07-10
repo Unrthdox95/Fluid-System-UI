@@ -10,8 +10,8 @@
 - Open Terminal and type:
     -     su
 - Hit enter then
-   -     Pixelr Pixelr "preset"
-- Presets [ Low, Medium, Extreme, Default ]
+   -     FS Pixelr "preset"
+- #### Presets [ Low, Medium, Extreme, Default ]
 > [!IMPORTANT] 
 > After Process complete, you can adjust icon and text size on display settings.
 > 

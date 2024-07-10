@@ -1,23 +1,24 @@
 # Fluid System UI v2.5
-- Added New Props for more Stability and Improvement
+- Added New Props for more Stability and Improvement 
 - Added Auto Switch display mode to 60hz when device is idle(saves more battery) with GMS GIOS disabler
 - It will go back to your set refresh rate (eg: 90hz-120hz) once you use it again
 - Open Terminal and type:
 -     su -c gm1
-### New (Pixelr) an Automatic Resoluion changer with auto matching density
+### New (Pixelr) Experience seamless visual Automatic Resolution Changer
 - Automatic custom presets [ Low, Medium, Extreme, Default ]
 #### To use Pixelr:
 - Open Terminal and type:
     -     su
 - Hit enter then
-   -     Pixelr "preset"
+   -     Pixelr Pixelr "preset"
 - Presets [ Low, Medium, Extreme, Default ]
 > [!IMPORTANT] 
 > After Process complete, you can adjust icon and text size on display settings.
 > 
 > To revert back to original Resolution and Density
-- Use:
+- Use either:
    -     Pixelr default
+   -     wm reset
 ### New JIT Compiler
 - Android runtime (ART) includes a just-in-time (JIT) compiler with code profiling that continually improves the performance of Android applications as they run.
 - The JIT compiler complements ART's current ahead-of-time (AOT) compiler and improves runtime performance, saves storage space, and speeds application and system updates.
@@ -28,9 +29,10 @@
 - Open Terminal and type:
    -     su
 -  Hit enter then
-   -     JIT compiler
+   -     JIT-compiler
 - Wait Until all application is compiled properly
 
+#
 #  
 
 # Fluid System UI v2.1
@@ -40,6 +42,8 @@
 - Added Frame rate override system wide (May not work on all Apps/Games) ↓↓
 - This feature is intended to cover the scenario where a game hasn’t set its own desired frame rate via the setFrameRate() API.
 
+#
+#
 
 # Fluid System UI v1.5
 - Initial Release

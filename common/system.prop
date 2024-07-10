@@ -38,6 +38,6 @@ vendor.perf.iop_v3.enable.debug=false
 ro.vendor.display.default_fps=120
 vendor.debug.egl.swapinterval=0
 ro.zygote.disable_gl_preload=tue
-graphics.display.kernel_idle_timer.enabled=@60
+graphics.display.kernel_idle_timer.enabled=true
 vendor.setup.power=1
 ro.sf.disable_triple_buffer=true

@@ -28,7 +28,7 @@ SKIPMOUNT=false
 PROPFILE=true
 
 # Set to true if you need post-fs-data script
-POSTFSDATA=false
+POSTFSDATA=true
 
 # Set to true if you need late_start service script
 LATESTARTSERVICE=false
@@ -123,7 +123,7 @@ REPLACE="
 
 print_modname() {
   ui_print "******************************"
-  ui_print "  Fluid System UI  "
+  ui_print "       Fluid System UI        "
   ui_print "******************************"
 }
 
@@ -143,6 +143,9 @@ on_install() {
 set_permissions() {
   # The following is the default rule, DO NOT remove
   set_perm_recursive $MODPATH 0 0 0755 0644
+  set_perm  $MODPATH/system/bin/gm1 0 0 0755
+  set_perm  $MODPATH/system/bin/FS 0 0 0755
+  set_perm  $MODPATH/system/bin/JIT-compiler 0 0 0755
 
   # Here are some examples:
   # set_perm_recursive  $MODPATH/system/lib       0     0       0755      0644

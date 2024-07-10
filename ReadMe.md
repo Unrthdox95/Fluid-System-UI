@@ -17,7 +17,7 @@
 > 
 > To revert back to original Resolution and Density
 - Use either:
-   -     Pixelr default
+   -     FS Pixelr default
    -     wm reset
 ### New JIT Compiler
 - Android runtime (ART) includes a just-in-time (JIT) compiler with code profiling that continually improves the performance of Android applications as they run.

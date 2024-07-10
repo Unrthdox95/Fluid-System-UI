@@ -1,0 +1,164 @@
+#!/system/bin/
+echo "
+"
+echo "Pixelr,Experience seamless visual clarity
+Pixelr Automatic Resolution Changer
+made by ▶Unrthdox95◀
+"
+sleep 0.5
+echo ""
+
+
+if [ "$1" = "Pixelr" ]; then
+
+
+echo "
+Pixelr Section:"
+sleep 0.5
+echo "
+"
+echo "■ Fetching Physical Resolution"
+sleep 0.5
+
+# Get the physical display resolution using wm size without considering override
+resolution=$(wm size | awk -F: '/Physical size/{gsub(/[ ]+/,"",$2); print $2}')
+
+# Extract width and height
+original_width=$(echo $resolution | cut -d'x' -f1)
+original_height=$(echo $resolution | cut -d'x' -f2)
+
+echo "■ Calculating Width by Height "
+
+# Calculate aspect ratio as a fraction
+aspect_ratio_numerator=$original_width
+aspect_ratio_denominator=$original_height
+
+echo "■ Aspect ratio found 
+  [ $original_width/$original_height ]"
+sleep 1
+echo "■ Calculating resolution reduction"
+sleep 0.5
+echo "■ Resolution will stay same 
+   if you've selected default"
+sleep 1
+
+# Function to calculate reduced resolution maintaining aspect ratio
+calculate_reduced_resolution() {
+  percentage=$1
+  reduced_width_numerator=$(echo "scale=0; $original_width * (100 - $percentage) / 100" | bc)
+  reduced_height_numerator=$(echo "scale=0; $original_height * (100 - $percentage) / 100" | bc)
+  echo "$reduced_width_numerator x $reduced_height_numerator"
+}
+
+# Check for the argument and calculate the reduced resolution accordingly
+case $2 in
+  "low")
+    reduced_resolution=$(calculate_reduced_resolution 10)
+    ;;
+  "medium")
+    reduced_resolution=$(calculate_reduced_resolution 20)
+    ;;
+  "extreme")
+    reduced_resolution=$(calculate_reduced_resolution 35)
+    ;;
+  "default")
+    # Default case: No change in resolution
+    reduced_resolution=$resolution
+    ;;
+  *)
+    echo "
+Available modes are:
+[ low, medium, extreme, default ]
+
+"
+    exit 1
+    ;;
+esac
+
+
+echo "■ Extracting width-height from reduced resolution"
+sleep 0.5
+# Extract changed width and height
+width=$(echo $reduced_resolution | cut -d'x' -f1)
+height=$(echo $reduced_resolution | cut -d'x' -f2)
+echo "
+"
+echo "■ Changing resolution to [ $reduced_resolution ]"
+sleep 1
+
+wm size "$(echo "${width}" | tr -d '[:space:]')x$(echo "${height}" | tr -d '[:space:]')"
+echo "
+"
+echo "■ Calculating width to height ratio"
+sleep 0.5
+# Calculate width-to-height ratio
+ratio=$(echo "scale=2; $width / $height" | bc)
+
+echo "■ Multiplying ratio by Droid constant"
+sleep 0.5
+# Multiply the ratio by 14.81481481 [ Droid Ratio ]
+result=$(echo "scale=2; $ratio * 14.81481481" | bc)
+
+echo "■ Fetching Pixelr for selected resolution"
+sleep 0.5
+# Divide the height by the latest found ratio and round to the nearest integer
+height_result=$(printf "%.0f" "$(echo "scale=2; $height / $result" | bc)")
+
+echo "■ Pixelr found: [ $height_result ]"
+sleep 1
+echo "
+"
+echo "Information:"
+sleep 0.5
+echo "■ Physical Display Resolution: 
+  [ $resolution ]"
+sleep 0.5
+echo "■ Override Display resolution: 
+  [ $reduced_resolution ]"
+sleep 0.5
+echo "■ Width-Height Ratio: [ $ratio ]"
+sleep 0.5
+echo "■ Ratio multiplied by Droid constant: 
+  [ $result ]"
+sleep 0.5
+echo "■ Height divided by the final ratio (rounded): 
+  [ $height_result ]"
+sleep 0.5
+echo "■ Setting Pixelr to [ $height_result ]"
+sleep 1
+# Set the rounded answer as the density using wm density
+wm density $height_result
+echo "
+"
+cmd notification post -S messaging --conversation "Unrthdox95" --message "Unrthdox95: Pixelr executed successfully" "Unrthdox95:" "Successful">/dev/null
+
+exit 1
+fi
+
+
+echo "
+##############################
+
+"
+
+# Check if package name, graphics mode are provided as arguments
+if [ $# -lt 2 ]; then
+    echo "
+help [ print this help text ]
+
+
+############ [ Pixelr ] ###############
+To use Pixelr:
+Open Terminal and type: su then Pixelr preset
+
+presets are [ low, medium, extreme, default ]
+
+#######################################
+
+"
+
+    exit 1
+fi
+
+# Force stopping termux itself after everything is done
+am force-stop com.termux

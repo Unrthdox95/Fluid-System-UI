@@ -1,0 +1,35 @@
+#!/system/bin/sh
+
+echo " Disabling GMS GIOS "
+sleep 0.5
+echo " and enabling Auto Switch display mode to 60hz when idle "
+sleep 1 
+
+echo "██████░░░░░░░░░░░░░░░  25%"
+sleep 2 
+echo "███████████░░░░░░░░░░  47%"
+sleep 2
+echo "██████████████░░░░░░░  62%"
+sleep 3 
+echo "██████████████████░░░  88%"
+sleep 2 
+echo "█████████████████████ 100%"
+
+  pm disable com.google.android.gms/.chimera.GmsIntentOperationService
+
+echo "➤ Switch display mode to 60hz when idle"
+sleep 0.5
+  echo write /sys/devices/platform/soc/soc:qcom,dsi-display-primary/idle_mode "@60"
+sleep 1
+echo "➤ Enable EAS"
+  echo write /proc/sys/kernel/sched_energy_aware 1
+sleep 2 
+echo " Made by @unrthdox95 "
+sleep 1
+echo " exiting now✅ "
+sleep 2
+
+am force-stop com.termux
+
+
+
